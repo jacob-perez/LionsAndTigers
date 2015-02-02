@@ -63,6 +63,15 @@
                                     <rect key="frame" x="16" y="499" width="342" height="21"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fact" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc4-IM-2AY">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="34" y="415" width="311" height="53"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -72,6 +81,7 @@
                                 <exclude reference="zfh-6o-VaT"/>
                                 <exclude reference="LD8-YU-htY"/>
                                 <exclude reference="Q8t-Mk-ciB"/>
+                                <exclude reference="kc4-IM-2AY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -81,6 +91,7 @@
                                 <include reference="zfh-6o-VaT"/>
                                 <include reference="LD8-YU-htY"/>
                                 <include reference="Q8t-Mk-ciB"/>
+                                <include reference="kc4-IM-2AY"/>
                             </mask>
                         </variation>
                     </view>
@@ -89,6 +100,7 @@
                         <outlet property="breedLabel" destination="LD8-YU-htY" id="d1D-sg-aY7"/>
                         <outlet property="myImageView" destination="Nkn-IW-5A0" id="snd-EW-okv"/>
                         <outlet property="nameLabel" destination="Q8t-Mk-ciB" id="W2R-GR-dIC"/>
+                        <outlet property="randomFactLabel" destination="kc4-IM-2AY" id="aZe-Hp-i86"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

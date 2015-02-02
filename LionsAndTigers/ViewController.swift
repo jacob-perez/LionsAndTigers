@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
+    @IBOutlet weak var randomFactLabel: UILabel!
     
     // create an empty tiger array
     var myTigers:[Tiger] = []
@@ -29,22 +30,28 @@ class ViewController: UIViewController {
         myTiger.age = 3
         myTiger.image = UIImage(named: "BengalTiger.jpg")
         
+        
+        myTiger.age = myTiger.ageInTigerYearsFromAge(myTiger.age)
+        
         //  this adds myTiger and it's properties into the array myTigers
         self.myTigers.append(myTiger)
         
         println ("My tiger's name is \(myTiger.name), it's age is \(myTiger.age), it's breed is \(myTiger.breed) and its image is \(myTiger.image)")
         
-        //  three more instances of the tigers
         myImageView.image = myTiger.image
         nameLabel.text = myTiger.name
         ageLabel.text = "\(myTiger.age)"
         breedLabel.text = myTiger.breed
+        randomFactLabel.text = myTiger.randomFact()
         
+        //  three more instances of the tigers
         var secondTiger = Tiger()
         secondTiger.name = "Tigress"
         secondTiger.breed = "Indochinese Tiger"
         secondTiger.age = 2
         secondTiger.image = UIImage(named:"IndochineseTiger.jpg")
+        
+        secondTiger.age = myTiger.ageInTigerYearsFromAge(secondTiger.age)
         
         var thirdTiger = Tiger()
         thirdTiger.name = "Jacob"
@@ -52,15 +59,20 @@ class ViewController: UIViewController {
         thirdTiger.age = 4
         thirdTiger.image = UIImage(named:"MalayanTiger.jpg")
         
+        thirdTiger.age = myTiger.ageInTigerYearsFromAge(thirdTiger.age)
+        
         var fourthTiger = Tiger()
         fourthTiger.name = "Spar"
         fourthTiger.breed = "Siberian Tiger"
         fourthTiger.age = 5
         fourthTiger.image = UIImage(named:"SiberianTiger.jpg")
         
+        fourthTiger.age = myTiger.ageInTigerYearsFromAge(fourthTiger.age)
+        
+        // += shorthand adds the remaining tiger instances to the array
         self.myTigers += [secondTiger, thirdTiger, fourthTiger]
         
-        myTiger.chuffANumberOfTimes(1)
+        myTiger.chuffANumberOfTimes(15, isLoud:false)
         secondTiger.chuffANumberOfTimes(1)
         thirdTiger.chuffANumberOfTimes(1)
         fourthTiger.chuffANumberOfTimes(1)
@@ -76,6 +88,7 @@ class ViewController: UIViewController {
         
         var randomIndex:Int
         
+        // DO loop below will run until the two are NOT equal
         do {
             randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
         } while currentIndex == randomIndex
@@ -88,17 +101,19 @@ class ViewController: UIViewController {
         //let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
         
         let tiger = myTigers[randomIndex]
-        myImageView.image = tiger.image
-        nameLabel.text = tiger.name
-        ageLabel.text = "\(tiger.age)"
-        breedLabel.text = tiger.breed
+//        myImageView.image = tiger.image
+//        nameLabel.text = tiger.name
+//        ageLabel.text = "\(tiger.age)"
+//        breedLabel.text = tiger.breed
         
+        // Creates a transition between each tiger instance
         UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             
             self.myImageView.image = tiger.image
             self.nameLabel.text = tiger.name
             self.ageLabel.text = "\(tiger.age)"
             self.breedLabel.text = tiger.breed
+            self.randomFactLabel.text = tiger.randomFact()
             
             }, completion: { (finished: Bool) ->() in })
         
